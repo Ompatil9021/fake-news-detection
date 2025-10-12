@@ -1,83 +1,125 @@
-# Fake-news-detaction-using--AI-Tools
-Fake News Detector - An AI-powered tool to analyze and classify news articles for authenticity.  This project is a Software Engineering endeavor that uses Natural Language Processing (NLP) and Machine Learning to help users identify potentially fake news.
+# Fake News Detection System
 
-## Run locally (Windows PowerShell)
+A comprehensive fake news detection system that combines Gemini AI API with a trained machine learning model to provide dual analysis of news articles.
 
-Follow these steps to clone, set up, and run both the backend (Flask) and frontend (static server) on Windows PowerShell. These commands are copy/paste-ready.
+## Features
 
-Prerequisites:
-- Git installed and on PATH
-- Python 3.10+ installed and on PATH
-- (Optional) Chrome browser
-- (Optional) Gemini API key for full AI functionality
+- **Dual Analysis**: Both Gemini AI and trained dataset model results
+- **User Authentication**: Login/Register system with admin dashboard
+- **Side-by-Side Results**: Compare AI and dataset model predictions
+- **Admin Dashboard**: View all submissions and user feedback
+- **Review System**: Users can rate analysis quality
 
-1) Clone repository
+## Setup Instructions
 
-```powershell
-git clone https://github.com/Ompatil9021/Fake-news-detaction-using--AI-Tools.git
-cd Fake-news-detaction-using--AI-Tools\gemini-detector
+### Prerequisites
+
+- Python 3.12 (required for PyTorch compatibility)
+- Git
+- Gemini API Key
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Ompatil9021/fake-news-detection.git
+   cd fake-news-detection
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   cd backend
+   py -3.12 -m pip install -r requirements.txt
+   ```
+
+3. **Download large files:**
+   The following large files are excluded from Git due to size limits:
+   - `backend/ml_model/saved_model/model.safetensors` (703 MB)
+   - `backend/ml_model/dataset/Fake.csv` (59 MB)
+   - `backend/ml_model/dataset/True.csv` (51 MB)
+   
+   **To get these files:**
+   - Download from the original source or
+   - Train the model using `backend/ml_model/train_transformer.py`
+
+4. **Set up environment variables:**
+   Create a `.env` file in the `backend` directory:
+   ```
+   GEMINI_API_KEY=your_gemini_api_key_here
+   GEMINI_MODEL=models/gemini-2.5-flash
+   ```
+
+5. **Run the application:**
+   ```bash
+   cd backend
+   py -3.12 app.py
+   ```
+
+6. **Access the application:**
+   - Main app: http://localhost:5000
+   - Admin dashboard: http://localhost:5000/admin/dashboard.html
+
+## Project Structure
+
+```
+fake-news-detection/
+├── backend/
+│   ├── app.py                 # Flask application
+│   ├── requirements.txt       # Python dependencies
+│   ├── ml_model/
+│   │   ├── infer.py          # Model inference script
+│   │   ├── train_transformer.py # Model training script
+│   │   ├── dataset/          # Training data (excluded from Git)
+│   │   └── saved_model/      # Trained model (excluded from Git)
+│   └── instance/             # SQLite database
+└── frontend/
+    ├── index.html            # Main application page
+    ├── login.html            # Login page
+    ├── register.html         # Registration page
+    ├── profile.html          # User profile page
+    ├── admin/
+    │   ├── dashboard.html    # Admin dashboard
+    │   └── admin.js         # Admin functionality
+    └── style.css            # Styling
+
 ```
 
-2) Backend (Flask) setup and run
+## How It Works
 
-Open a new PowerShell window and run:
+1. **User submits text** for analysis
+2. **Gemini API** provides fact-checking analysis with verdict and explanation
+3. **Dataset model** provides binary classification (Real/Fake) with confidence score
+4. **Results displayed side-by-side** for comparison
+5. **Warning shown** if models disagree
+6. **Users can rate** the analysis quality
 
-```powershell
-cd .\backend
+## Technologies Used
 
-# Create and activate virtual environment (one-time)
-python -m venv venv
-.\venv\Scripts\Activate.ps1
+- **Backend**: Flask, Python 3.12
+- **ML Model**: PyTorch, Transformers, DeBERTa-v3-base
+- **AI API**: Google Gemini 2.5 Flash
+- **Frontend**: HTML, CSS, JavaScript
+- **Database**: SQLite
+- **Authentication**: Flask-Login
 
-# If activation is blocked, run this for the current session only:
-# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+## API Endpoints
 
-# Install dependencies
-pip install --upgrade pip
-pip install -r requirements.txt
+- `POST /analyze-text` - Analyze text with both models
+- `POST /analyze-media` - Analyze media files with Gemini
+- `GET /admin/reviews` - Get all user reviews (admin only)
+- `GET /admin/posts` - Get all submissions (admin only)
 
-# Optional env vars (for this session only):
-$env:GEMINI_API_KEY = 'your_gemini_api_key_here'     # optional
-$env:GEMINI_MODEL = 'models/gemini-2.5-flash'        # optional override
-$env:FLASK_APP = 'app.py'
-$env:FLASK_ENV = 'development'
+## Contributing
 
-# Start Flask backend
-python -m flask run
-```
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-Default backend address:
-- http://127.0.0.1:5000
+## License
 
-3) Frontend (static files) run
+This project is open source and available under the MIT License.
 
-Open another PowerShell window and run:
+## Contact
 
-```powershell
-cd ..\frontend
-python -m http.server 8000
-```
-
-Frontend URL (login page):
-- http://localhost:8000/login.html
-
-4) Quick workflow summary
-- Terminal A (backend): activate venv → `python -m flask run`
-- Terminal B (frontend): `python -m http.server 8000`
-- Open `http://localhost:8000/login.html` in Chrome or your browser
-
-5) Notes and troubleshooting
-- If you see `Error: Failed to get analysis from Gemini API`, make sure `GEMINI_API_KEY` is set and valid. Check Flask console for available model messages.
-- Dataset/model inference requires the local model files under `backend/ml_model/saved_model/`. These large binaries are not included in the GitHub upload due to size limits. Keep them locally if you want dataset inference to work.
-- If you need to store large model files in the repo, use Git LFS (not configured by default).
-- The database uses SQLite and will be created automatically on first run.
-
-6) Start Chrome from PowerShell (optional)
-
-```powershell
-Start-Process "chrome" "http://localhost:8000/login.html"
-```
-
----
-
-If you want, I can add a small PowerShell script to start both servers, or help configure Git LFS for your model files. Tell me which you prefer and I'll add it.
+For questions or support, please contact: ompatil902123@gmail.com
