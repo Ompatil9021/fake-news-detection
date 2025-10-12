@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - AuthentiCheck</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="data:image/svg+xml,..."> 
+    
+</head>
+<body>
+    <div id="page-container">
+        <header id="main-header">
+            <div class="logo-container">
+                <svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 8.5L10 15L7.5 12.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <h1><a href="/index.html" style="color:white;text-decoration:none;">AuthentiCheck</a></h1>
+            </div>
+            <div id="profile-section"></div>
+        </header>
+
+        <main>
+            <div class="admin-panel">
+                <h1>Admin Dashboard</h1>
+                <h2>User Feedback and Reviews</h2>
+                <div id="reviews-table-container">
+                    <p>Loading reviews...</p>
+                </div>
+            </div>
+            <div class="admin-panel">
+                <h2>All User Submissions</h2>
+                <div id="all-posts-table-container">
+                <p>Loading all submissions...</p>
+                </div>
+            </div>
+            <div class="admin-panel">
+                <h3>Review Ratings Overview</h3>
+                <div class="chart-wrapper">
+                <canvas id="satisfactionChart"></canvas>
+            </div>
+</div>
+        </main>
+
+        <footer id="main-footer">
+            <p>&copy; 2025 AuthentiCheck. All Rights Reserved.</p>
+            <p class="disclaimer">Disclaimer: AI-generated content may not be 100% accurate.</p>
+        </footer>
+    </div>
+
+    <div id="review-modal" class="modal-backdrop" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close-button">&times;</button>
+            <h3>Review Details</h3>
+            <div id="modal-body">
+                </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

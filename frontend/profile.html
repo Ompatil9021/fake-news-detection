@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - AuthentiCheck</title>
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M12 2L2 7V17L12 22L22 17V7L12 2Z' stroke='%238A42DB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3cpath d='M16.5 8.5L10 15L7.5 12.5' stroke='%238A42DB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="page-container">
+        <header id="main-header">
+            <div class="logo-container">
+                 <svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 8.5L10 15L7.5 12.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                 <h1><a href="index.html" style="color:white; text-decoration: none;">AuthentiCheck</a></h1>
+            </div>
+            <div id="profile-section">
+                <!-- Profile icon will be inserted here -->
+            </div>
+        </header>
+
+        <main>
+            <div class="profile-header">
+                <div id="profile-page-icon" class="profile-icon"></div>
+                <div>
+                    <h1 id="profile-username">Loading...</h1>
+                    <p id="profile-email">Loading...</p>
+                </div>
+            </div>
+
+            <div class="history-panel">
+                <h2>My Submission History</h2>
+                <div id="history-container">
+                    <!-- History items will be injected here by JS -->
+                </div>
+            </div>
+        </main>
+        
+        <footer id="main-footer">
+            <p>&copy; 2025 AuthentiCheck. All Rights Reserved.</p>
+        </footer>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>
