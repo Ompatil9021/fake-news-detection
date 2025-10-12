@@ -60,8 +60,10 @@ Thumbs.db
 *.tmp
 *.temp
 
-# Model files (optional - you might want to include these)
-# ml_model/saved_model/
+# Large model files (too big for GitHub)
+backend/ml_model/saved_model/
+backend/ml_model/dataset/Fake.csv
+backend/ml_model/dataset/True.csv
 
 # Backup files
 *.ps1
