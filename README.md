@@ -41,7 +41,6 @@ A comprehensive fake news detection system that combines Gemini AI API with a tr
    **To get these files:**
    - Download from the original source or
    - Train the model using `backend/ml_model/train_transformer.py`
-  
 #USE THIS LINK TO DOWNLOAD ZIP FILE LINK GET DIRECT ALL CODE:
    ```bash
    https://drive.google.com/file/d/1MDPvyS_Hc5FjEcZqA8j0Rc96uGFoK2zd/view?usp=sharing
