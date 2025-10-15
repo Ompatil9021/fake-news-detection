@@ -55,13 +55,20 @@ A comprehensive fake news detection system that combines Gemini AI API with a tr
    ```
 
 5. **Run the application:**
+
+   go to backend folder
+
    ```bash
-   cd backend
    python -m flask run
 
    ```
 
-6. **Access the application:**
+   Go to Frontend folder
+   ```bash
+   python -m http.server 8000
+   ```
+
+7. **Access the application:**
    - Main app: http://localhost:5000
    - Admin dashboard: http://localhost:5000/admin/dashboard.html
 
