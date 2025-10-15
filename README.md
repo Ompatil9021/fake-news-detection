@@ -44,7 +44,7 @@ A comprehensive fake news detection system that combines Gemini AI API with a tr
   
 
 
-#USE THIS LINK TO DOWNLOAD ZIP FILE LINK GET DIRECT ALL CODE:
+# USE THIS LINK TO DOWNLOAD ZIP FILE LINK GET DIRECT ALL CODE:
    ```bash
    https://drive.google.com/file/d/1MDPvyS_Hc5FjEcZqA8j0Rc96uGFoK2zd/view?usp=sharing
    ```
