@@ -68,6 +68,11 @@ A comprehensive fake news detection system that combines Gemini AI API with a tr
    python -m http.server 8000
    ```
 
+   Go to browser
+   ```
+   http://localhost:8000/login.html
+   ```
+
 7. **Access the application:**
    - Main app: http://localhost:5000
    - Admin dashboard: http://localhost:5000/admin/dashboard.html
